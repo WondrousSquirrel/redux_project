@@ -7,10 +7,11 @@ import FriendsList from "./FriendList";
 
 class App extends Component {
   render() {
+    const name = "Jhon";
     return (
       <Provider store={store}>
         <div>
-          <FriendsList />
+          <FriendsList name={name} />
         </div>
       </Provider>
     );

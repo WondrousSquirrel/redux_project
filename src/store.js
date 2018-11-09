@@ -21,10 +21,11 @@ const store = createStore(
   )
 );
 
+//store.dispatch(updateFriend());
 // получаем текущее состояние хранилища
-console.log(store.getState());
+//console.log(store.getState());
+//store.dispatch(addFriend("Jhon"));
 // "отправка" события, выполнение скорее всего.
-//store.dispatch(addFriend);
 //console.log(store.getState());
 
 export default store;

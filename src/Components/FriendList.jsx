@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-
+import { bindActionCreators } from "redux";
 import { addFriend } from "../actions/friendActions";
 
 class FriendList extends Component {
@@ -13,7 +13,7 @@ class FriendList extends Component {
 
   onClick(e) {
     if (confirm("Add Rick to Friends?")) {
-      this.props.addFriend();
+      this.props.addFriend(this.props.name);
       console.log("Rick добавлен в список друзей");
     } else {
       console.log("Rick не был добавлен в список друзей");
@@ -48,11 +48,19 @@ FriendList.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  // состояние хранилища в props
   friends: state.friends
 });
 
-const mapActionsToProps = {
-  addFriend: addFriend
+const mapActionsToProps = (dispatch, props) => {
+  // переводим действия в props
+  console.log(props);
+  return bindActionCreators(
+    {
+      addFriend: addFriend
+    },
+    dispatch
+  );
 };
 
 export default connect(

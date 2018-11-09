@@ -5,3 +5,4 @@
  */
 
 export const ADD_FRIEND = "ADD FRIEND";
+export const UPDATE_FRIEND = "UPDATE_FRIEND";

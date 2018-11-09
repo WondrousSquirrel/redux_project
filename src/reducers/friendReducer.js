@@ -3,7 +3,7 @@
  * один для изменение массива id,
  * другой - map друзей.
  */
-import { ADD_FRIEND } from "../actions/types";
+import { ADD_FRIEND, UPDATE_FRIEND } from "../actions/types";
 
 const initialState = {
   // сделано в стиле normalizr, что позволяет лучше массшабировать данные
@@ -31,6 +31,15 @@ function friendReducer(state = initialState, { type, payload, id }) {
           //позволяет проще создавать динамические key в объектах
           [id]: payload
         }
+      };
+    }
+    case UPDATE_FRIEND: {
+      state.friendsById[id] = {
+        ...state.friendsById[id],
+        ...payload
+      };
+      return {
+        ...state
       };
     }
     default:
