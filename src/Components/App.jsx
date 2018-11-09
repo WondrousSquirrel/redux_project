@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import store from "../store";
 import FriendsList from "./FriendList";
 
+import "../css/main.css";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>
+        <div className="main">
           <FriendsList />
         </div>
       </Provider>

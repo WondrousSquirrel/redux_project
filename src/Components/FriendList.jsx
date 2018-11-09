@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addFriend } from "../actions/friendActions";
 
+import "../css/sidebar.css";
+
 import NameInput from "./NameInput";
 
 class FriendList extends Component {
@@ -32,20 +34,24 @@ class FriendList extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Friend List</h1>
-        <ul>
-          {this.props.friends.id.map((friend, index) => (
-            <li key={index}>
-              {this.props.friends.friendsById[friend].info.name}
-            </li>
-          ))}
-        </ul>
-        <hr />
-        <NameInput name={this.state.name} onNameChange={this.onNameChange} />
-        <button type="submit" onClick={this.onClick}>
-          Submit
-        </button>
+      <div className="sidenav">
+        <div className="head">
+          <h1>Список Друзей</h1>
+        </div>
+        <div className="content">
+          <div className="item">
+            {this.props.friends.id.map((friend, index) => (
+              <p href="#" key={index}>
+                {this.props.friends.friendsById[friend].info.name}
+              </p>
+            ))}
+          </div>
+          <hr />
+          <NameInput name={this.state.name} onNameChange={this.onNameChange} />
+          <button type="submit" onClick={this.onClick}>
+            Submit
+          </button>
+        </div>
       </div>
     );
   }
