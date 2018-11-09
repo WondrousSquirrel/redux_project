@@ -24,7 +24,7 @@ const store = createStore(
 // получаем текущее состояние хранилища
 console.log(store.getState());
 // "отправка" события, выполнение скорее всего.
-store.dispatch(addFriend);
-console.log(store.getState());
+//store.dispatch(addFriend);
+//console.log(store.getState());
 
 export default store;
