@@ -4,16 +4,21 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addFriend } from "../actions/friendActions";
 
+import NameInput from "./NameInput";
+
 class FriendList extends Component {
   constructor(props) {
     super(props);
+    this.state = { name: "" };
 
     this.onClick = this.onClick.bind(this);
+    this.onNameChange = this.onNameChange.bind(this);
   }
 
   onClick(e) {
-    if (confirm(`Добавить ${this.props.name} в список друзей?`)) {
-      this.props.addFriend(this.props.name);
+    if (confirm(`Добавить ${this.state.name} в список друзей?`)) {
+      this.props.addFriend(this.state.name);
+      this.setState({ name: "" }); // очищаем ввод от предыдущего значения
       console.log("Друг добавлен в список");
     } else {
       console.log("Друг не был добавлен в список");
@@ -21,8 +26,11 @@ class FriendList extends Component {
     }
   }
 
+  onNameChange(e) {
+    this.setState({ name: e.target.value });
+  }
+
   render() {
-    console.log(this.props);
     return (
       <div>
         <h1>Friend List</h1>
@@ -33,6 +41,8 @@ class FriendList extends Component {
             </li>
           ))}
         </ul>
+        <hr />
+        <NameInput name={this.state.name} onNameChange={this.onNameChange} />
         <button type="submit" onClick={this.onClick}>
           Submit
         </button>
@@ -52,9 +62,8 @@ const mapStateToProps = state => ({
   friends: state.friends
 });
 
-const mapActionsToProps = (dispatch, props) => {
+const mapActionsToProps = dispatch => {
   // переводим действия в props
-  console.log(props);
   return bindActionCreators(
     {
       addFriend: addFriend

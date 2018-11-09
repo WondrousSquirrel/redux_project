@@ -17,8 +17,8 @@ export const addFriend = name => ({
   payload: { id: uuid(), info: { name } }
 });
 
-export const updateFriend = () => ({
+export const updateFriend = (id, name) => ({
   type: UPDATE_FRIEND,
-  id: 1,
-  payload: { info: { name: "Alexander" } }
+  id: id,
+  payload: { info: { name } }
 });
