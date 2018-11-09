@@ -12,11 +12,11 @@ class FriendList extends Component {
   }
 
   onClick(e) {
-    if (confirm("Add Rick to Friends?")) {
+    if (confirm(`Добавить ${this.props.name} в список друзей?`)) {
       this.props.addFriend(this.props.name);
-      console.log("Rick добавлен в список друзей");
+      console.log("Друг добавлен в список");
     } else {
-      console.log("Rick не был добавлен в список друзей");
+      console.log("Друг не был добавлен в список");
       e.preventDefault();
     }
   }

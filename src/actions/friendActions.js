@@ -3,16 +3,18 @@
  * которые создают действие.
  * Обязаны содержать поле type: 'ДЕЙСТВИЕ'
  */
+import uuid from "uuid";
 import { ADD_FRIEND, UPDATE_FRIEND } from "./types";
 
 export const addFriend = name => ({
   type: ADD_FRIEND,
-  id: 2,
+  // генерируем уникальный id
+  id: uuid(),
   /**
    * с помощью деструктурирующего присваивания, можно не писать {name: name}
    * а просто name, так как имена совпадают
    */
-  payload: { id: 2, info: { name } }
+  payload: { id: uuid(), info: { name } }
 });
 
 export const updateFriend = () => ({
