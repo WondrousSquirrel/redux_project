@@ -23,4 +23,7 @@
   width: 60%;
   margin: auto;
   color: #efefef;
+  border: 1px #804d77 solid;
+  border-radius: 2px;
+  padding: 10px;
 }

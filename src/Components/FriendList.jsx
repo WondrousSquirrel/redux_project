@@ -42,8 +42,8 @@ class FriendList extends Component {
         <div className="content">
           {this.props.friends.id.map((friend, index) => (
             <p href="#" key={index}>
-              id:{index + 1}
-              <p>name: {this.props.friends.friendsById[friend].info.name}</p>
+              id:{index + 1} &nbsp; имя:&nbsp;
+              {this.props.friends.friendsById[friend].info.name}
             </p>
           ))}
 
