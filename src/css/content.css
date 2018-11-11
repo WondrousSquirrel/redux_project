@@ -1,0 +1,26 @@
+.wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+}
+
+.title {
+  font-size: 34px;
+  text-align: center;
+  color: #55efc4;
+}
+
+.content {
+  background-color: #fd7272;
+  font-size: 21px;
+  width: 60%;
+  margin: auto;
+  color: #efefef;
+}
