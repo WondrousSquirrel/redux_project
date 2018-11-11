@@ -7,11 +7,12 @@ import { addFriend } from "../actions/friendActions";
 import "../css/content.css";
 
 import NameInput from "./NameInput";
+import Friend from "./Friend";
 
 class FriendList extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "" };
+    this.state = { name: "", show: false };
 
     this.onClick = this.onClick.bind(this);
     this.onNameChange = this.onNameChange.bind(this);
@@ -40,13 +41,13 @@ class FriendList extends Component {
         </div>
         <br />
         <div className="content">
+          {/* Перебираем хранилище и отображаем на каждый объект свой компонент */}
           {this.props.friends.id.map((friend, index) => (
-            <p href="#" key={index}>
-              id:{index + 1} &nbsp; имя:&nbsp;
-              {this.props.friends.friendsById[friend].info.name}
-            </p>
+            <Friend
+              key={index}
+              info={this.props.friends.friendsById[friend].info}
+            />
           ))}
-
           <hr />
           <NameInput onNameChange={this.onNameChange} />
           <button type="submit" onClick={this.onClick}>
