@@ -48,7 +48,7 @@ class FriendList extends Component {
           ))}
 
           <hr />
-          <NameInput name={this.state.name} onNameChange={this.onNameChange} />
+          <NameInput onNameChange={this.onNameChange} />
           <button type="submit" onClick={this.onClick}>
             Submit
           </button>

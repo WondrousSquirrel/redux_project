@@ -6,7 +6,7 @@ const NameInput = memo(function NameInput(props) {
       <form>
         <label>
           Name:
-          <input type="text" value={props.name} onChange={props.onNameChange} />
+          <input type="text" onChange={props.onNameChange} />
         </label>
       </form>
     </>
